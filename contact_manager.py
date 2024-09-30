@@ -1,5 +1,4 @@
-# contact_manager.py
-from input_validation import is_valid_phone, is_valid_email
+from input_validation import is_valid_unique_id, is_valid_phone, is_valid_email
 
 contacts = {}
 
@@ -16,6 +15,9 @@ def add_contact():
         return
     if not is_valid_email(email):
         print("Invalid email format.")
+        return
+    if not is_valid_unique_id(unique_id):
+        print("Invalid unique format.")
         return
     additional_info = input("Enter additional information (optional): ")
     contacts[unique_id] = {"Name": name, "Phone": phone, "Email": email, "Additional Info": additional_info}
